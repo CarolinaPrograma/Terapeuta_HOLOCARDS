@@ -151,7 +151,7 @@ public class Historial : MonoBehaviour
             DateTime dueDate = DateTime.Parse(gameData["fecha"].ToString());
             DateTime tomorrow = DateTime.Now.AddDays(1).Date;
 
-            if (tomorrow > dueDate.Date && gameData["status"].ToString() == "pendiente")
+            if (tomorrow < dueDate.Date && gameData["status"].ToString() == "pendiente")
             {
                 DocumentReference docRef = FirebaseFirestore.DefaultInstance
                                                .Collection("patients")
